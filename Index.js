@@ -1,6 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const { choices } = require('yargs');
+const generateHTML = require('./utils/generateHTML');
 // const Engineer = require('./lib/Engineer');
 // const Employee = require('./lib/Employee');
 // const Engineer = require('./lib/Engineer');
@@ -68,7 +69,7 @@ const managerPrompt = () => {
     ])
     .then(answers => {
       employees.push(answers);
-      // console.log(employees);
+      return employees
     })
   };
 
@@ -93,8 +94,7 @@ const menuPrompt = () => {
       internPrompt();
     } else {
       console.log('You chose to complete your team');
-      console.log(employees);
-      return
+      return employees
     }
   })
 };
@@ -158,7 +158,6 @@ const engineerPrompt = () => {
   ])
   .then(answers => {
     employees.push(answers);
-    // console.log(employees);
     return menuPrompt();
   })
 };
@@ -227,10 +226,24 @@ const internPrompt = () => {
   })
 };
 
-// function to write README file
+// function call to initialize program
+managerPrompt()
+.then(employees => {
+  return menuPrompt(employees);
+})
+.then(employees => {
+  console.log(generateHTML(employees));
+  return generateHTML(employees);
+ })
+.catch(err => {
+  console.log(err);
+});
+
+// EXAMPLE CODE FROM CHALLENGE 7
+// function to write HTML file
 // const writeFile = data => {
 //   return new Promise((resolve, reject) => {
-//     fs.writeFile('./README.md', data, err => {
+//     fs.writeFile('./index.html', data, err => {
 //       if (err) {
 //         reject(err);
 //         return;
@@ -244,20 +257,13 @@ const internPrompt = () => {
 // };
 
 // function call to initialize program
-managerPrompt()
-.then(answers => {
-  return menuPrompt(answers);
-})
-// menuPrompt();
-  // .then(projectData => {
-  //   return generateMarkdown(projectData);
-  // })
-  // .then(readme => {
-  //   return writeFile(readme);
-  // })
-  // .catch(err => {
-  //   console.log(err);
-  // });
-
-
-
+// promptUser()
+//   .then(projectData => {
+//     return generateMarkdown(projectData);
+//   })
+//   .then(readme => {
+//     return writeFile(readme);
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });
