@@ -16,7 +16,7 @@ const managerPrompt = () => {
     return inquirer.prompt([
         {
             type: 'input',
-            name: 'managerName',
+            name: 'manager',
             message: 'What is the team Manager\'s name?',
             validate: managerNameInput => {
               if (managerNameInput) {
@@ -69,6 +69,9 @@ const managerPrompt = () => {
     ])
     .then(answers => {
       employees.push(answers);
+      // menuPrompt();
+      // return employees
+      console.log(employees);
       return employees
     })
   };
@@ -88,10 +91,10 @@ const menuPrompt = () => {
     console.log(answers.menuList);
     if (answers.menuList === 'Engineer') {
       console.log("you selected Engineer");
-      engineerPrompt();
+      return engineerPrompt();
     } else if (answers.menuList === 'Intern') {
       console.log("you selected Intern");
-      internPrompt();
+      return internPrompt();
     } else {
       console.log('You chose to complete your team');
       return employees
@@ -105,7 +108,7 @@ const engineerPrompt = () => {
   return inquirer.prompt([
       {
           type: 'input',
-          name: 'engineerName',
+          name: 'engineer',
           message: 'What is the Engineer\'s name?',
           validate: engineerNameInput => {
             if (engineerNameInput) {
@@ -168,7 +171,7 @@ const internPrompt = () => {
   return inquirer.prompt([
       {
           type: 'input',
-          name: 'internName',
+          name: 'intern',
           message: 'What is the Intern\'s name?',
           validate: internNameInput => {
             if (internNameInput) {
@@ -226,44 +229,36 @@ const internPrompt = () => {
   })
 };
 
+// function to write HTML file
+const writeFile = employees => {
+  return new Promise((resolve, reject) => {
+    fs.writeFile('./index.html', employees, err => {
+      if (err) {
+        reject(err);
+        return;
+      }
+      resolve({
+        ok: true,
+        message: 'File created!'
+      });
+    });
+  });
+};
+
 // function call to initialize program
 managerPrompt()
 .then(employees => {
   return menuPrompt(employees);
 })
 .then(employees => {
+  console.log(employees);
   console.log(generateHTML(employees));
   return generateHTML(employees);
+ })
+ .then(employees => {
+   return writeFile(employees);
  })
 .catch(err => {
   console.log(err);
 });
 
-// EXAMPLE CODE FROM CHALLENGE 7
-// function to write HTML file
-// const writeFile = data => {
-//   return new Promise((resolve, reject) => {
-//     fs.writeFile('./index.html', data, err => {
-//       if (err) {
-//         reject(err);
-//         return;
-//       }
-//       resolve({
-//         ok: true,
-//         message: 'File created!'
-//       });
-//     });
-//   });
-// };
-
-// function call to initialize program
-// promptUser()
-//   .then(projectData => {
-//     return generateMarkdown(projectData);
-//   })
-//   .then(readme => {
-//     return writeFile(readme);
-//   })
-//   .catch(err => {
-//     console.log(err);
-//   });
