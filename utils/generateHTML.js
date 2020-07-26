@@ -10,21 +10,60 @@ const generateHTML = employees => {
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>Portfolio Demo</title>
+      <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
+    <link rel="stylesheet" href="./src/style.css" />
+      <title>Team Profile</title>
     </head>
   
     <body>
+      <header class="jumbotron">
+        <h1 class="row">My Team</h1>
+      </header>
 
-      <h1>${employees[0].manager}</h1>
-      <h1>${employees[0].managerId}</h1>
-      <h1>${employees[0].managerEmail}</h1>
-      <h1>${employees[0].managerOffice}</h1>
+      <main class="container row">
 
-      <h2>${employees[1].engineer}</h2>
-      <h2>${employees[1].engineerId}</h2>
-      <h2>${employees[1].engineerEmail}</h2>
-      <h2>${employees[1].engineerGithub}</h2>
+        <div class="card manager" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${employees[0].manager}</h5>
+            <h6 class="card-subtitle mb-2">Manager</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Employee ID: ${employees[0].managerId}</li>
+              <li class="list-group-item">Email: ${employees[0].managerEmail}</li>
+              <li class="list-group-item">Office Number: ${employees[0].managerOffice}</li>
+            </ul>
+          </div>
+        </div>
 
+        <div class="card engineer" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${employees[1].engineer}</h5>
+            <h6 class="card-subtitle mb-2">Engineer</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Employee ID: ${employees[1].engineerId}</li>
+              <li class="list-group-item">Email: ${employees[1].engineerEmail}</li>
+              <li class="list-group-item">GitHub: ${employees[1].engineerGithub}</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card intern" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${employees[2].intern}</h5>
+            <h6 class="card-subtitle mb-2">Intern</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Employee ID: ${employees[2].internId}</li>
+              <li class="list-group-item">Email: ${employees[2].internEmail}</li>
+              <li class="list-group-item">School: ${employees[2].internSchool}</li>
+            </ul>
+          </div>
+        </div>
+
+      </main>
+      
     </body>
     </html>
     `;
