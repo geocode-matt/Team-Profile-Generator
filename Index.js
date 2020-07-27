@@ -224,7 +224,7 @@ const internPrompt = () => {
 // function to write HTML file
 const writeFile = employees => {
   return new Promise((resolve, reject) => {
-    fs.writeFile('./index.html', employees, err => {
+    fs.writeFile('./dist/index.html', employees, err => {
       if (err) {
         reject(err);
         return;

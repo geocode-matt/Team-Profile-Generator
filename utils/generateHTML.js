@@ -25,10 +25,10 @@ const managerCard = ({ manager, managerId, managerEmail, managerOffice }) => {
   <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${manager}</h5>
-            <h6 class="card-subtitle mb-2">Manager</h6>
+            <h6 class="card-subtitle mb-2"><span class="oi oi-briefcase"></span> Manager</h6>
             <ul class="list-group">
               <li class="list-group-item">Employee ID: ${managerId}</li>
-              <li class="list-group-item">Email: ${managerEmail}</li>
+              <li class="list-group-item">Email: <a href="mailto:${managerEmail}">${managerEmail}</a></li>
               <li class="list-group-item">Office Number: ${managerOffice}</li>
             </ul>
           </div>
@@ -41,11 +41,11 @@ const engineerCard = ({ engineer, engineerId, engineerEmail, engineerGithub }) =
   <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${engineer}</h5>
-            <h6 class="card-subtitle mb-2">Engineer</h6>
+            <h6 class="card-subtitle mb-2"><span class="oi oi-briefcase"></span> Engineer</h6>
             <ul class="list-group">
               <li class="list-group-item">Employee ID: ${engineerId}</li>
-              <li class="list-group-item">Email: ${engineerEmail}</li>
-              <li class="list-group-item">GitHub: ${engineerGithub}</li>
+              <li class="list-group-item">Email: <a href="mailto:${engineerEmail}">${engineerEmail}</a></li>
+              <li class="list-group-item">GitHub: <a href="https://github.com/${engineerGithub}">${engineerGithub}</a></li>
             </ul>
           </div>
         </div>
@@ -57,10 +57,10 @@ const internCard = ({ intern, internId, internEmail, internSchool }) => {
   <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${intern}</h5>
-            <h6 class="card-subtitle mb-2">Intern</h6>
+            <h6 class="card-subtitle mb-2"><span class="oi oi-briefcase"></span> Intern</h6>
             <ul class="list-group">
               <li class="list-group-item">Employee ID: ${internId}</li>
-              <li class="list-group-item">Email: ${internEmail}</li>
+              <li class="list-group-item">Email: <a href="mailto:${internEmail}">${internEmail}</a></li>
               <li class="list-group-item">School: ${internSchool}</li>
             </ul>
           </div>
@@ -87,7 +87,7 @@ module.exports = templateData => {
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" />
-    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="../src/style.css"/>
       <title>Team Profile</title>
     </head>
   
