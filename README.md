@@ -18,8 +18,8 @@
   ## Usage
   Initialize the application by typing 'node index' in the command line. Answer the prompted questions to fill out your team profile. Upon completion of the prompts, the application will build an index.html file in the /dist directory.
 
-  Tutorial: https://github.com/geocode-matt/Team-Profile-Generator
-
+  Tutorial/Walkthrough Video: https://drive.google.com/file/d/1pkzlIkj5BteXCZTi_WLqc4plBoq6xK1h/view
+  
   ## Licensing
   This project is unlicensed.
 
