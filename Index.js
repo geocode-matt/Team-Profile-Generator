@@ -251,18 +251,18 @@ const writeFile = employees => {
 };
 
 ////// FUNCTION TO PUSH TO SEPARATE ARRAYS (Managers, Engineers, Interns)
-const managers = employees.filter(manager => manager.manager)
-const engineers = employees.filter(engineer => engineer.engineer)
-const interns = employees.filter(intern => intern.intern)
+// const managers = employees.filter(manager => manager.manager)
+// const engineers = employees.filter(engineer => engineer.engineer)
+// const interns = employees.filter(intern => intern.intern)
 
-var filter = function() {
-  console.log("<----------->");
-  console.log(managers);
-  console.log("<----------->");
-  console.log(engineers);
-  console.log("<----------->");
-  console.log(interns);
-}
+// var filter = function() {
+//   console.log("<----------->");
+//   console.log(managers);
+//   console.log("<----------->");
+//   console.log(engineers);
+//   console.log("<----------->");
+//   console.log(interns);
+// }
 
 // TEST CODE TO GENERATE HTML
 const buildHTML = employees => {
@@ -274,12 +274,12 @@ const buildHTML = employees => {
       case 'manager':
         cardHTML = managerCard(item);
         break
-      case 'engineer':
-        cardHTML = engineerCard(item);
-        break
-      case 'intern':
-        cardHTML = internCard(item);
-        break
+      // case 'engineer':
+      //   cardHTML = engineerCard(item);
+      //   break
+      // case 'intern':
+      //   cardHTML = internCard(item);
+      //   break
     }
     cardsArray.push(cardHTML);
   })
@@ -302,8 +302,38 @@ const managerCard = ({ manager, managerId, managerEmail, managerOffice }) => {
         </div>
   `;
 };
-
-
+// TEST CODE TO GENERATE ENGINEER CARD
+// const managerCard = ({ manager, managerId, managerEmail, managerOffice }) => {
+//   return `
+//   <div class="card" style="width: 18rem;">
+//           <div class="card-body">
+//             <h5 class="card-title">${manager}</h5>
+//             <h6 class="card-subtitle mb-2">Manager</h6>
+//             <ul class="list-group">
+//               <li class="list-group-item">Employee ID: ${managerId}</li>
+//               <li class="list-group-item">Email: ${managerEmail}</li>
+//               <li class="list-group-item">Office Number: ${managerOffice}</li>
+//             </ul>
+//           </div>
+//         </div>
+//   `;
+// };
+// TEST CODE TO GENERATE INTERN CARD
+// const managerCard = ({ manager, managerId, managerEmail, managerOffice }) => {
+//   return `
+//   <div class="card" style="width: 18rem;">
+//           <div class="card-body">
+//             <h5 class="card-title">${manager}</h5>
+//             <h6 class="card-subtitle mb-2">Manager</h6>
+//             <ul class="list-group">
+//               <li class="list-group-item">Employee ID: ${managerId}</li>
+//               <li class="list-group-item">Email: ${managerEmail}</li>
+//               <li class="list-group-item">Office Number: ${managerOffice}</li>
+//             </ul>
+//           </div>
+//         </div>
+//   `;
+// };
 
 // function call to initialize program
 managerPrompt()
