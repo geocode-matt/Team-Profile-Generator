@@ -9,22 +9,25 @@
   * [Tests](#tests)
   
   ## Description
-  This application will quickly and effectively build a README.md file for your project! 
+  This application will take user input from the command line to build a quick and effective team profile web page.
+    <img src="./screenshot.png">
 
   ## Installation Instructions
-  Download the application. Initalize the application in the command line. 
+  Download the application at: https://github.com/geocode-matt/Team-Profile-Generator.
 
   ## Usage
-  Initialize the application by typing 'node index' in the command line. Answer the prompted questions. Be sure to include your newly generated readme file in your project documentation! 
+  Initialize the application by typing 'node index' in the command line. Answer the prompted questions to fill out your team profile. Upon completion of the prompts, the application will build an index.html file in the /dist directory.
+
+  Tutorial: https://github.com/geocode-matt/Team-Profile-Generator
 
   ## Licensing
-  This project is covered under MIT,APACHE 2.0,GPL 3.0,BSD 3.
+  This project is unlicensed.
 
   ## Contribution Guidelines
-  Please email the project owner for contribution information. 
+  Please email the project owner (mlindenx@email.com) for contribution information. 
 
   ## Tests  
-  No information on testing for this application at this time.
+  Please run npm run test in the command line to view tests.
 
   ## Questions
   Please send any questions/concerns/comments to: mlindenx@gmail.com
