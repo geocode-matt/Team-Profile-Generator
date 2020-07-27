@@ -13,7 +13,7 @@
     <img src="./screenshot.png">
 
   ## Installation Instructions
-  Download the application at: https://github.com/geocode-matt/Team-Profile-Generator.
+  Download the application from the GitHub repository here: https://github.com/geocode-matt/Team-Profile-Generator.
 
   ## Usage
   Initialize the application by typing 'node index' in the command line. Answer the prompted questions to fill out your team profile. Upon completion of the prompts, the application will build an index.html file in the /dist directory.
