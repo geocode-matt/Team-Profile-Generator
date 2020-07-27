@@ -27,7 +27,7 @@
   Please email the project owner (mlindenx@email.com) for contribution information. 
 
   ## Tests  
-  Please run npm run test in the command line to view tests.
+  Please run 'npm run test' in the command line to view tests.
 
   ## Questions
   Please send any questions/concerns/comments to: mlindenx@gmail.com
