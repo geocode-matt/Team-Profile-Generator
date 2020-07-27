@@ -1,8 +1,80 @@
-// function to generate HTML
-const generateHTML = employees => {
-  // console.log("test start");
-  // console.log(employees);
-  // console.log(employees[0].managerName);
+// GENERATE HTML
+const generateHTML = (employees) => {
+  let cardsArray = [];
+  employees.forEach((item) => {
+    let cardHTML
+    switch (item.role) {
+      case 'manager':
+        cardHTML = managerCard(item);
+        break
+      case 'engineer':
+        cardHTML = engineerCard(item);
+        break
+      case 'intern':
+        cardHTML = internCard(item);
+        break
+    }
+    cardsArray.push(cardHTML);
+  })
+  return cardsArray;
+};
+      
+// GENERATE MANAGER CARD
+const managerCard = ({ manager, managerId, managerEmail, managerOffice }) => {
+  return `
+  <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${manager}</h5>
+            <h6 class="card-subtitle mb-2">Manager</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Employee ID: ${managerId}</li>
+              <li class="list-group-item">Email: ${managerEmail}</li>
+              <li class="list-group-item">Office Number: ${managerOffice}</li>
+            </ul>
+          </div>
+        </div>
+  `;
+};
+// GENERATE ENGINEER CARD
+const engineerCard = ({ engineer, engineerId, engineerEmail, engineerGithub }) => {
+  return `
+  <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${engineer}</h5>
+            <h6 class="card-subtitle mb-2">Engineer</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Employee ID: ${engineerId}</li>
+              <li class="list-group-item">Email: ${engineerEmail}</li>
+              <li class="list-group-item">GitHub: ${engineerGithub}</li>
+            </ul>
+          </div>
+        </div>
+  `;
+};
+// GENERATE INTERN CARD
+const internCard = ({ intern, internId, internEmail, internSchool }) => {
+  return `
+  <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">${intern}</h5>
+            <h6 class="card-subtitle mb-2">Intern</h6>
+            <ul class="list-group">
+              <li class="list-group-item">Employee ID: ${internId}</li>
+              <li class="list-group-item">Email: ${internEmail}</li>
+              <li class="list-group-item">School: ${internSchool}</li>
+            </ul>
+          </div>
+        </div>
+  `;
+};
+
+// GENERATE HTML
+module.exports = templateData => {
+
+  let cards = generateHTML(templateData);
+  let mgrCard = cards.shift();
+  let subCard = cards.join().replace(/,/g, '');
+
     return `
     <!DOCTYPE html> 
     <html lang="en"> 
@@ -25,43 +97,8 @@ const generateHTML = employees => {
       </header>
 
       <main class="container row">
-
-        <div class="card manager" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">${employees[0].manager}</h5>
-            <h6 class="card-subtitle mb-2">Manager</h6>
-            <ul class="list-group">
-              <li class="list-group-item">Employee ID: ${employees[0].managerId}</li>
-              <li class="list-group-item">Email: ${employees[0].managerEmail}</li>
-              <li class="list-group-item">Office Number: ${employees[0].managerOffice}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card engineer" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">${employees[1].engineer}</h5>
-            <h6 class="card-subtitle mb-2">Engineer</h6>
-            <ul class="list-group">
-              <li class="list-group-item">Employee ID: ${employees[1].engineerId}</li>
-              <li class="list-group-item">Email: ${employees[1].engineerEmail}</li>
-              <li class="list-group-item">GitHub: ${employees[1].engineerGithub}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="card intern" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">${employees[2].intern}</h5>
-            <h6 class="card-subtitle mb-2">Intern</h6>
-            <ul class="list-group">
-              <li class="list-group-item">Employee ID: ${employees[2].internId}</li>
-              <li class="list-group-item">Email: ${employees[2].internEmail}</li>
-              <li class="list-group-item">School: ${employees[2].internSchool}</li>
-            </ul>
-          </div>
-        </div>
-
+    ${mgrCard}
+    ${subCard}
       </main>
       
     </body>
@@ -69,5 +106,4 @@ const generateHTML = employees => {
     `;
   };
   
-  module.exports = generateHTML;
   
